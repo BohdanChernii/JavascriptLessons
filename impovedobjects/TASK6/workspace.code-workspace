@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "..\\..\\..\\gromecode\\node_modules"
+		},
+		{
+			"path": "..\\..\\..\\gromecode\\eslint"
+		}
+	],
+	"settings": {}
+}
