@@ -1,4 +1,4 @@
-import getSum, { getSquaredNumbers, getOddNumbers } from './script.js';
+import getSum, { getSquaredNumbers, getOddNumbers } from './calculator.js';
 it('shold get squared numvers', () => {
     const result = getSquaredNumbers([1, 2, 3]);
 
