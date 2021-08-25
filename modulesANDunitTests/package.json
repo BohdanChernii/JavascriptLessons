@@ -1,9 +1,19 @@
 {
-  "dependencies": {
-    "jest": "^27.0.6"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.15.0",
-    "@babel/preset-env": "^7.15.0"
-  }
+    "dependencies": {
+        "jest": "^27.0.6"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.15.0",
+        "@babel/preset-env": "^7.15.0"
+    },
+    "name": "modulesandunittests",
+    "version": "1.0.0",
+    "main": ".eslintrc.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": ""
 }
