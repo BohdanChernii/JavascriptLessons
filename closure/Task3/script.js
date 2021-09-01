@@ -1,36 +1,62 @@
+//умова
+//алгоритм
+//погано
+//ріфактор
+
+//створити методи з повідомленнями
+//створити метод getRecords який буде працювати з рештою методів
+//задати сортування
 const createLogger = () => {
-let message;
-function warn (message) {
-message = {
-    message:'User try to restricted page',
-    dateTime:new Date(),
-    type:'warn',
-}
-}
 
-function error (message) {
-    message = {
-        message:'Uexpected error on the site',
-        dateTime:new Date(),
-        type:'error',
-    }
-}
+let arr = [];
 
-function log (message) {
-    message = {
-        message:'User try to restricted page',
-        dateTime:new Date(),
-        type:'warn',
-    }
-}
+  function log(str) {
+    arr.push({
+      message: str,
+      dateTime: new Date(),
+      type: 'log',
+    })
+  }
+  function warn(str) {
+    arr.push({
+      message: str,
+      dateTime: new Date(),
+      type: 'warn',
+    })
+  }
+  function error(str) {
+    arr.push({
+      message: str,
+      dateTime: new Date(),
+      type: 'error',
+    })
+  }
+  
 
-return {
+  //має приймати тип логера
+  //і якшо співпадає з типом обєrта пушити в res
+  //якшо аргументи не задані вивести всі обєкти 
+  //потім методом sort b-a по даті
+
+  function getRecord() {
+ arr.sort((a,b) => a.dateTime - b.dateTime);
+   return arr
+  }
+
+  return {
     log,
     warn,
     error,
-}
+    getRecord,
+  };
+
 };
-console.log(createLogger());
-
-
+const logger = createLogger();
+logger.getRecord();
+logger.log("User logged in");
+logger.warn("User try restricted on the site");
+logger.error("Uexpected error on the site");
+logger.error("Uexpected error on the site");
+logger.log("User logged in");
+console.log(logger.getRecord());
 
