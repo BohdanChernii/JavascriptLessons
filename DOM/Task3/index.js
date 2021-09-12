@@ -5,10 +5,11 @@ export const getItemsList = () => {
 
 }
 getItemsList()
+
 export const getItemsArray = () => {
     const tool = document.querySelectorAll('.tool')
     console.dir(Array.from(tool))
-    return tool
+    return Array.from(tool)
 }
 getItemsArray()
 
