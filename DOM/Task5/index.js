@@ -1,5 +1,5 @@
- export const setTitle = (str) => {
+export const setTitle = (str) => {
 const text = document.querySelector('.title');
- text.textContent = str
+return text.textContent = str
 }
 setTitle('Bohdan Chernii')
