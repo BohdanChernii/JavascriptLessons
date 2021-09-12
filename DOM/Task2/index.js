@@ -1,13 +1,13 @@
 export const getTitleElement = () => {
     const text = document.querySelector('.title');
-    console.dir(text.outerHTML)
+    console.dir(text)
     return text;
 }
 getTitleElement()
-export const getInputElement = () =>{
+ export const getInputElement = () =>{
     const input = document.querySelector('input');
     input.getAttribute('type','text');
-    console.dir(input.outerHTML)
+    console.dir(input)
     return input
 }
 getInputElement()
