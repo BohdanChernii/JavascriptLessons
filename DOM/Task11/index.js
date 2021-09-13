@@ -3,5 +3,7 @@ export const manageClasses = () => {
   items[0].classList.toggle('selected');
   items[1].classList.toggle('selected');
   items[2].classList.toggle('three_done')
-  items[3].classList.toggle('another_class','some-class')
+  if (items[3].outerHTML.includes("some-class")) {
+    items[3].classList.add("another-class");
+  }
 }
