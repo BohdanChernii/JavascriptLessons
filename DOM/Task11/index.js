@@ -5,4 +5,3 @@ export const manageClasses = () => {
   items[2].classList.toggle('three_done')
   items[3].classList.toggle('another_class','some-class')
 }
-manageClasses()
