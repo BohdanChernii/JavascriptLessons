@@ -7,4 +7,4 @@ input.setAttribute('name','login')
    let last = Array.from( document.querySelectorAll('input')).pop();
    last.setAttribute('type','password');
 };
-finishForm();
+
