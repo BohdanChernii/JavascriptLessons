@@ -1,11 +1,10 @@
-const checkbox = document.querySelector('.task-status');
-function changed (event){
-if (!event.target.checked){
-    console.log(false) 
-};
-if (event.target.checked){
-    console.log(true) 
-};
+const buttons = Array.from(document.querySelectorAll('.pagination__page'));
+const firstButton = buttons[0];
+const secondButton = buttons[1];
+const thirdButton = buttons[2];
+function getDataAtribute (event) {
+    console.log(event.target.getAttribute('data-page-number'));
 }
-
-checkbox.addEventListener('change', changed)
+firstButton.addEventListener('click', getDataAtribute)
+secondButton.addEventListener('click', getDataAtribute)
+thirdButton.addEventListener('click', getDataAtribute)
