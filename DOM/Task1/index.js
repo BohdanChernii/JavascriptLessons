@@ -11,7 +11,11 @@ const tasks = [
 
 const generateId = () => Math.random().toFixed(4) * 10000;
 const addNewEL = () => {
+  if(taskInput.value === ''){
+    return false;
+  }
   tasks.push({ text: taskInput.value, done: false, id: generateId() });
+  taskInput.value = '';
   renderTasks(tasks);
 };
 button.addEventListener("click", addNewEL);
