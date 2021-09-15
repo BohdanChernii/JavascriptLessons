@@ -1,4 +1,7 @@
-export const tasks = [
+const listElem = document.querySelector('.list');
+const taskInput = document.querySelector('.task-input')
+const button = document.querySelector('.create-task-btn')
+ const tasks = [
   { text: "Buy milk", done: false },
   { text: "Pick up Tom from airport", done: false },
   { text: "Visit party", done: false },
@@ -6,29 +9,44 @@ export const tasks = [
   { text: "Buy meat", done: true },
 ];
 
-/**
- * @param {object[]} tasksList
- * @return {undefined}
- */
-const renderListItems = (taskslist) => {
-  const listElem = document.querySelector(".list");
+const addNewEL = () => {
+  tasks.push({ text:taskInput.value, done: false })
+  renderTasks(tasks)
+}
+button.addEventListener('click',addNewEL)
 
-  const listItemsElems = taskslist
+const checkCheckbox = (event) => {
+if(!event.target.classList.contains('list__item-checkbox')){
+return false
+}  
+}
+listElem.addEventListener('click', checkCheckbox)
+
+const renderTasks = tasksList => {
+  listElem.innerHTML = '';
+  const tasksElems = tasksList
     .sort((a, b) => a.done - b.done)
     .map(({ text, done }) => {
-      const listItemElem = document.createElement("li");
-      listItemElem.classList.add("list__item");
-      if (done) {
-        listItemElem.classList.add("list__item_done");
-      }
-      const checkboxElem = document.createElement("input");
-      checkboxElem.setAttribute("type", "checkbox");
-      checkboxElem.checked = done;
+      const listItemElem = document.createElement('li');
+      listItemElem.classList.add('list__item');
+      const checkbox = document.createElement('input');
+      checkbox.setAttribute('type', 'checkbox');
 
-      checkboxElem.classList.add("list__item-checkbox");
-      listItemElem.append(checkboxElem, text);
+      checkbox.checked = done;
+      checkbox.classList.add('list__item-checkbox');
+      if (done) {
+        listItemElem.classList.add('list__item_done');
+      }
+      listItemElem.append(checkbox, text);
+
       return listItemElem;
     });
-  listElem.append(...listItemsElems);
+
+  listElem.append(...tasksElems);
 };
-renderListItems(tasks);
+
+renderTasks(tasks);
+
+
+
+ 
