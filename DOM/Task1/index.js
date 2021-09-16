@@ -12,16 +12,14 @@ const tasks = [
 
 const generateId = () => Math.random().toFixed(4) * 10000;
 const addNewEL = () => {
-  if(taskInput.value === ''){
+  if (taskInput.value === "") {
     return false;
   }
   tasks.push({ text: taskInput.value, done: false, id: generateId() });
-  taskInput.value = '';
+  taskInput.value = "";
   renderTasks(tasks);
 };
 button.addEventListener("click", addNewEL);
-
-
 
 const checkCheckbox = (event) => {
   const item = event.target;
@@ -32,19 +30,14 @@ const checkCheckbox = (event) => {
   const itemId = item.closest("li").dataset.id; // here we getting id of li as string
   tasks.map((el) => {
     if (el.id === parseInt(itemId)) {
-   
       // here we parsing itemId because it is string and we need number
       el.done = item.checked; // changing field done in object
-     
     }
   });
 
   renderTasks(tasks); // re rendering updated list
 };
 listElem.addEventListener("click", checkCheckbox);
-
-
-
 
 const renderTasks = (tasksList) => {
   listElem.innerHTML = "";
@@ -57,18 +50,17 @@ const renderTasks = (tasksList) => {
 
       const checkbox = document.createElement("input");
       checkbox.setAttribute("type", "checkbox");
-      checkbox.checked = done;  
+
+      checkbox.checked = done;
+
       checkbox.classList.add("list__item-checkbox");
       if (done) {
         listItemElem.classList.add("list__item_done");
-        
       }
       listItemElem.append(checkbox, text);
-
       return listItemElem;
     });
-
   listElem.append(...tasksElems);
 };
 
-renderTasks(tasks);
+
