@@ -1,7 +1,6 @@
 const listElem = document.querySelector(".list");
 const taskInput = document.querySelector(".task-input");
 const button = document.querySelector(".create-task-btn");
-const checkbox = document.createElement("input");
 const tasks = [
   { text: "Buy milk", done: false, id: 1 },
   { text: "Pick up Tom from airport", done: false, id: 2 },
@@ -12,11 +11,11 @@ const tasks = [
 
 const generateId = () => Math.random().toFixed(4) * 10000;
 const addNewEL = () => {
-  if (taskInput.value === "") {
+  if(taskInput.value === ''){
     return false;
   }
   tasks.push({ text: taskInput.value, done: false, id: generateId() });
-  taskInput.value = "";
+  taskInput.value = '';
   renderTasks(tasks);
 };
 button.addEventListener("click", addNewEL);
@@ -27,7 +26,9 @@ const checkCheckbox = (event) => {
   if (!item.classList.contains("list__item-checkbox")) {
     return false;
   }
+
   const itemId = item.closest("li").dataset.id; // here we getting id of li as string
+
   tasks.map((el) => {
     if (el.id === parseInt(itemId)) {
       // here we parsing itemId because it is string and we need number
@@ -37,6 +38,7 @@ const checkCheckbox = (event) => {
 
   renderTasks(tasks); // re rendering updated list
 };
+
 listElem.addEventListener("click", checkCheckbox);
 
 const renderTasks = (tasksList) => {
@@ -52,14 +54,15 @@ const renderTasks = (tasksList) => {
       checkbox.setAttribute("type", "checkbox");
 
       checkbox.checked = done;
-
       checkbox.classList.add("list__item-checkbox");
       if (done) {
         listItemElem.classList.add("list__item_done");
       }
       listItemElem.append(checkbox, text);
+
       return listItemElem;
     });
+
   listElem.append(...tasksElems);
 };
 
