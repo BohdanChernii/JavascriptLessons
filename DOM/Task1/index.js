@@ -20,26 +20,30 @@ const addNewEL = () => {
 };
 button.addEventListener("click", addNewEL);
 
+
+
 const checkCheckbox = (event) => {
   const item = event.target;
-
+  
   if (!item.classList.contains("list__item-checkbox")) {
     return false;
   }
-
   const itemId = item.closest("li").dataset.id; // here we getting id of li as string
-
   tasks.map((el) => {
     if (el.id === parseInt(itemId)) {
+      const checkbox = document.createElement("input");
+      checkbox.checked = true;
       // here we parsing itemId because it is string and we need number
-      el.done = true; // changing field done in object
+      el.done = checkbox.checked; // changing field done in object
     }
   });
 
   renderTasks(tasks); // re rendering updated list
 };
-
 listElem.addEventListener("click", checkCheckbox);
+
+
+
 
 const renderTasks = (tasksList) => {
   listElem.innerHTML = "";
@@ -54,6 +58,7 @@ const renderTasks = (tasksList) => {
       checkbox.setAttribute("type", "checkbox");
 
       checkbox.checked = done;
+      checkbox.setAttribute("checked", "checked");
       checkbox.classList.add("list__item-checkbox");
       if (done) {
         listItemElem.classList.add("list__item_done");
