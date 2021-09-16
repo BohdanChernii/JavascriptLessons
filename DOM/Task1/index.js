@@ -1,6 +1,7 @@
 const listElem = document.querySelector(".list");
 const taskInput = document.querySelector(".task-input");
 const button = document.querySelector(".create-task-btn");
+const checkbox = document.createElement("input");
 const tasks = [
   { text: "Buy milk", done: false, id: 1 },
   { text: "Pick up Tom from airport", done: false, id: 2 },
@@ -24,15 +25,14 @@ button.addEventListener("click", addNewEL);
 
 const checkCheckbox = (event) => {
   const item = event.target;
-  
+  checkbox.checked = true;
   if (!item.classList.contains("list__item-checkbox")) {
     return false;
   }
   const itemId = item.closest("li").dataset.id; // here we getting id of li as string
   tasks.map((el) => {
     if (el.id === parseInt(itemId)) {
-      const checkbox = document.createElement("input");
-      checkbox.checked = true;
+   
       // here we parsing itemId because it is string and we need number
       el.done = checkbox.checked; // changing field done in object
     }
