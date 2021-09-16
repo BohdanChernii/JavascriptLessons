@@ -34,8 +34,8 @@ const checkCheckbox = (event) => {
     if (el.id === parseInt(itemId)) {
    
       // here we parsing itemId because it is string and we need number
-      el.done = true; // changing field done in object
-      checkbox.setAttribute("checked", "");
+      el.done = item.checked; // changing field done in object
+     
     }
   });
 
@@ -61,7 +61,7 @@ const renderTasks = (tasksList) => {
       checkbox.classList.add("list__item-checkbox");
       if (done) {
         listItemElem.classList.add("list__item_done");
-        checkbox.setAttribute("checked", "");
+        
       }
       listItemElem.append(checkbox, text);
 
