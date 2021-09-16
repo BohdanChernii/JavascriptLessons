@@ -35,6 +35,7 @@ const checkCheckbox = (event) => {
    
       // here we parsing itemId because it is string and we need number
       el.done = true; // changing field done in object
+      checkbox.setAttribute("checked", "");
     }
   });
 
