@@ -6,7 +6,7 @@ console.log(JSON.parse(localStorage.getItem('Name')))
 console.log(JSON.parse(localStorage.getItem('Age')))
 console.log(JSON.parse(localStorage.getItem('Smaking')))
 console.log(JSON.parse(localStorage.getItem('Capital')))
- const getlocalStorageData = () => {
+ export const getlocalStorageData = () => {
 return Object.entries(localStorage).reduce((acc, [key, value])=>{
      
     return {...acc,[key]: JSON.parse(value),}
