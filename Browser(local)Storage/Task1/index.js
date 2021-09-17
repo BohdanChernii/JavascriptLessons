@@ -10,3 +10,4 @@ return Object.entries(localStorage).reduce((acc, [key, value])=>{
 },{})
  }
 
+ getLocalStorageData()
