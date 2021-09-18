@@ -2,20 +2,20 @@ const calc = (intialValue) => {
   let result = intialValue;
 
   const obj = {
-    add(value) {
-      result += value;
+    add(number) {
+      result += number;
       return this;
     },
-    subtract(value) {
-      result -= value;
+    subtract(number) {
+      result -= number;
       return this;
     },
-    mult(value) {
-      result *= value;
+    mult(number) {
+      result *= number;
       return this;
     },
-    div(value) {
-      result /= value;
+    div(number) {
+      result /= number;
       return this;
     },
     result() {
