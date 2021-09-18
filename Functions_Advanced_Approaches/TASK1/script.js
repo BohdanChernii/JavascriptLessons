@@ -1,7 +1,7 @@
 const calc = (intialValue) => {
   let result = intialValue;
 
-  const obj = {
+  const calculator = {
     add(number) {
       result += number;
       return this;
@@ -22,6 +22,6 @@ const calc = (intialValue) => {
       return result;
     },
   };
-  return obj;
+  return calculator;
 };
-console.log(calc(3).add(2).subtract(1).div(2).result())
+
