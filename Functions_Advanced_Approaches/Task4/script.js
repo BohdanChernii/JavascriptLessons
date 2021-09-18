@@ -2,7 +2,7 @@ const add = value => value + 10;
 const square = value => value ** 2;
 const half =value => value/2
 
-const compose = (...funcs)=> value => {
+export const compose = (...funcs)=> value => {
 return funcs.reduce((acc, func) => func(acc), value)
 };
 
