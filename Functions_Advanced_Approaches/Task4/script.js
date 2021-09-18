@@ -1,4 +1,4 @@
-const add = value => value + 2;
+const add = value => value + 10;
 const square = value => value ** 2;
 const half =value => value/2
 
