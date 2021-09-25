@@ -37,7 +37,7 @@ const submitData = (event) => {
       form.reset();
       button.disabled = true;
     })
-    .catch(() => (errorText.textContent = "Failed to crete user"));
+    .catch(() => (errorText.textContent = "Failed to create user"));
 };
 
 form.addEventListener("input", isValible);
