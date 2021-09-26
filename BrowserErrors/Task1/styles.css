@@ -13,23 +13,23 @@
     margin: auto;
     align-items: center;
 }
-    .avatar {
+.user__avatar {
         width: 320px;
         height: 320px;
         border-radius: 50%;
     }
 
-    .info {
+    .user__info {
         text-align: center;
         font-size: 24px;
         margin: 32px;
     }
 
-    .name {
+    .user__name {
         font-weight: 700;
     }
 
-    .location {
+    .user__location {
         opacity: 0.5;
     }
 
@@ -65,7 +65,7 @@
     padding: 0;
     margin: 0;
 }
-    .item {
+    .repo-list__item {
         max-width: 100px;
         overflow: hidden;
         text-overflow: ellipsis;
