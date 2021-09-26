@@ -13,17 +13,18 @@ const showUserBtn = document.querySelector(".name-form__btn");
 const userNameInput = document.querySelector(".name-form__input");
 
 const onSearchUser = () => {
-cleanRepoList()
+
 showSpinner();
 renderuserData(defaultUser);
   const userName = userNameInput.value;
   fetchUserData(userName)
     .then((userData) => {
       renderuserData(userData);
-      return userData.repros_url;
+      return userData.repos_url;
     })
     .then((url) => fetchRepositories(url))
     .then((repoList) => {
+
        renderRepos(repoList)
        hideSpinner();
     })
