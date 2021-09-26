@@ -1,37 +1,27 @@
-import {  fetchUserData, fetchRepositories } from "./gateways.js";
-import { renderuserData } from "./user.js";
-import { renderRepos,  cleanRepoList } from "./repos.js";
-import { hideSpinner, showSpinner } from "./spinner.js"
-const defaultUserAvatar = "https://avatars3.githubusercontent.com/u10001";
-const defaultUser = {
-  avatar_url: defaultUserAvatar,
-  name: "",
-  location: "",
-};
+window.addEventListener("error", function onUnhandledError (err) {
+    console.error("error", err.message);
+});
 
-renderuserData(defaultUser);
-const showUserBtn = document.querySelector(".name-form__btn");
-const userNameInput = document.querySelector(".name-form__input");
+let userParsingResult;
 
-const onSearchUser = () => {
-    showSpinner();
-    cleanRepoList()
-  const userName = userNameInput.value;
-  fetchUserData(userName)
-    .then((userData) => {
-      renderuserData(userData);
-      return userData.repros_url;
-    })
-    .then((url) => fetchRepositories(url))
-    .then((repoList) => {
-       renderRepos(repoList)
-       hideSpinner();
-    })
-    .catch((err) => {
-        alert(err.message)
-    })
-    .finally(()=>{
-        hideSpinner();
-    })
-};
-showUserBtn.addEventListener("click", onSearchUser);
+try {
+    const user = JSON.parse('{"name":"Bohdan"}');
+    console.log("User data: ", user);
+    userParsingResult = "success";
+} catch(e) {
+    userParsingResult = "error";
+} finally {
+    console.log(`User parsing finished with ${userParsingResult}`);
+}
+
+let productParsingResult;
+
+try {
+    const product = JSON.parse('{"color":red');
+    console.log("Product data: ", product);
+    productParsingResult = "success";
+} catch(e) {
+    productParsingResult = "error";
+} finally {
+    console.log(`Product parsing finished with ${productParsingResult}`);
+}
