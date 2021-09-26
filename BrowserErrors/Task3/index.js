@@ -8,14 +8,14 @@ const defaultUser = {
   location: "",
 };
 
-renderuserData(defaultUser);
+
 const showUserBtn = document.querySelector(".name-form__btn");
 const userNameInput = document.querySelector(".name-form__input");
 
-const onSearchUser = () => {
-
-showSpinner();
 renderuserData(defaultUser);
+
+const onSearchUser = () => {
+showSpinner();
   const userName = userNameInput.value;
   fetchUserData(userName)
     .then((userData) => {
