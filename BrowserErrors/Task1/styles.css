@@ -37,7 +37,7 @@
 .name-form {
     margin: 32px auto;
 }
-    .input {
+    .name-form__input {
         height: 32px;
         border: 3px solid #ccc;
         border-radius: 8px;
@@ -46,7 +46,7 @@
     }
 
 
-.btn {
+.name-form__btn {
     height: 40px;
     min-width: 64px;
     border: 3px solid #ccc;
@@ -99,6 +99,6 @@
     border-bottom-color: transparent;
     animation: rotate 1s linear infinite;
 }
-    .hidden {
+    .spinner_hidden {
         display: none;
     }

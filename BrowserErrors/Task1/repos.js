@@ -10,6 +10,6 @@ export const renderRepos = (repoList) => {
     listElem.textContent = name;
     return listElem;
   });
- cleanRepoList()
+
   listELem.append(...repoListElems);
 };

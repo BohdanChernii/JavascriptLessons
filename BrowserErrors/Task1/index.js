@@ -1,9 +1,10 @@
-import { fetchData, fetchReprositories } from "./gateways.js";
+import {  fetchUserData, fetchRepositories } from "./gateways.js";
 import { renderuserData } from "./user.js";
 import { renderRepos,  cleanRepoList } from "./repos.js";
-import { showSpinner, hideSpinner } from "./spinner.js"
+import { hideSpinner, showSpinner } from "./spinner.js"
+const defaultUserAvatar = "https://avatars3.githubusercontent.com/u10001";
 const defaultUser = {
-  avatar_url: "https://api.github.com/usercontent.com/u10001",
+  avatar_url: defaultUserAvatar,
   name: "",
   location: "",
 };
@@ -16,12 +17,12 @@ const onSearchUser = () => {
     showSpinner();
     cleanRepoList()
   const userName = userNameInput.value;
-  fetchData(userName)
+  fetchUserData(userName)
     .then((userData) => {
       renderuserData(userData);
       return userData.repros_url;
     })
-    .then((url) => fetchReprositories(url))
+    .then((url) => fetchRepositories(url))
     .then((repoList) => {
        renderRepos(repoList)
        hideSpinner();
