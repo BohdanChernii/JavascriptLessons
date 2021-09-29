@@ -1,0 +1,30 @@
+{
+  "name": "webtools",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest -w",
+    "build:styles": "sass ./src/styles/index.scss ./dist/styles.css",
+    "copy:html":"cp ./src/index.html ./dist/index.html",
+    "copy:scripts":"cp -R ./src/scripts ./dist/scripts",
+    "clean":"rm -rf ./dist",
+    "build":"npm run clean && npm run build:styles && npm run copy:html && npm run copy:scripts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BohdanChernii/WebTools.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BohdanChernii/WebTools/issues"
+  },
+  "homepage": "https://github.com/BohdanChernii/WebTools#readme",
+  "description": "",
+  "devDependencies": {
+    "@babel/preset-env": "^7.15.6",
+    "jest": "^27.2.3",
+    "sass": "^1.42.1"
+  }
+}
